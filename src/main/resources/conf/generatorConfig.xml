@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration> 
+
+  <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <plugin type="com.adzuki.admin.common.generator.AdzukiMapperPlugin">
+      <property name="mappers" value="com.adzuki.admin.common.mapper.CoreMapper"/>
+      <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+      <property name="caseSensitive" value="true"/>
+      <property name="genType" value="mybatis"/><!-- mybatis or jpa -->
+      <property name="forceAnnotation" value="true"/>
+    </plugin>
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin> 
+    <plugin type="com.adzuki.admin.common.generator.AdzukiManagerPlugin">
+    	<property name="baseManager" value="com.adzuki.admin.common.manager.AbstractManager"/>
+    	<property name="targetPackage" value="com.adzuki.admin.manager"/>
+    	<property name="targetProject" value="./src/main/java"/>
+    	<property name="genType" value="mybatis"/>
+    </plugin>
+    <commentGenerator>  
+        <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+        <property name="suppressAllComments" value="true"/>  
+    </commentGenerator>  
+    
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3308/auth" driverClass="com.mysql.jdbc.Driver" 
+    	userId="root" password="root"  />
+    
+    <javaModelGenerator targetPackage="com.adzuki.admin.entity" targetProject="./src/main/java">
+    	<property name="enableSubPackages" value="true"/>
+    	<property name="trimStrings" value="true" />
+    </javaModelGenerator>
+	<sqlMapGenerator targetPackage="mapper"  targetProject="./src/main/resources">
+		 <property name="enableSubPackages" value="true"/>
+	</sqlMapGenerator>
+	<javaClientGenerator targetPackage="com.adzuki.admin.mapper" targetProject="./src/main/java" type="XMLMAPPER" >
+		 <property name="enableSubPackages" value="true"/>
+	</javaClientGenerator>
+		
+    <table tableName="admin_menu" domainObjectName="Menu">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table tableName="admin_oper_log" domainObjectName="OperLog">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table tableName="admin_role" domainObjectName="Role">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table tableName="admin_role_menu" domainObjectName="RoleMenu">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table tableName="admin_type_code" domainObjectName="TypeCode">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table tableName="admin_user" domainObjectName="User">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    <table tableName="admin_user_role" domainObjectName="UserRole">
+      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+    </table>
+    
+    
+    
+    
+  </context>
+</generatorConfiguration>
