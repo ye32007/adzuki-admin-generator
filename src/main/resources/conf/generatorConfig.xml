@@ -22,7 +22,7 @@
         <property name="suppressAllComments" value="true"/>  
     </commentGenerator>  
     
-    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3308/auth" driverClass="com.mysql.jdbc.Driver" 
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3308/gateway" driverClass="com.mysql.jdbc.Driver" 
     	userId="root" password="root"  />
     
     <javaModelGenerator targetPackage="com.adzuki.admin.entity" targetProject="./src/main/java">
@@ -36,25 +36,7 @@
 		 <property name="enableSubPackages" value="true"/>
 	</javaClientGenerator>
 		
-    <table tableName="admin_menu" domainObjectName="Menu">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="admin_oper_log" domainObjectName="OperLog">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="admin_role" domainObjectName="Role">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="admin_role_menu" domainObjectName="RoleMenu">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="admin_type_code" domainObjectName="TypeCode">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="admin_user" domainObjectName="User">
-      <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-    </table>
-    <table tableName="admin_user_role" domainObjectName="UserRole">
+    <table tableName="api_config" domainObjectName="ApiConfig">
       <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
     </table>
     
